@@ -35,4 +35,10 @@ return [
         ],
     ],
 
+    'roboflow' => [
+        'public_key' => env('ROBOFLOW_PUB_KEY'),
+        'model_name' => env('ROBOFLOW_MODEL_NAME'),
+        'model_version' => env('ROBOFLOW_MODEL_VERSION'),
+    ],
+
 ];
