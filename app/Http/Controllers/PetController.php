@@ -45,7 +45,7 @@ class PetController extends Controller
                 $orderValue = 'DESC';
         }
 
-        $pets = Pet::orderBy($orderColumn, $orderValue)->paginate($size);
+        $pets = Pet::orderBy($orderColumn, $orderValue)->simplePaginate($size);
 
         return view('pet.index', [
             'pets' => $pets,

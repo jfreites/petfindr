@@ -280,7 +280,7 @@
                 async function getModel() {
                     var model = await roboflow
                         .auth({
-                            publishable_key: "{{ config('roboflow.public_key') }}",
+                            publishable_key: "{{ config('services.roboflow.public_key') }}",
                         })
                         .load({
                             model: 'oxford-pets', //'dog-and-cat-face-detection',

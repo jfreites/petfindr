@@ -281,7 +281,7 @@
                 async function getModel() {
                     var model = await roboflow
                         .auth({
-                            publishable_key: "{{ config('roboflow.public_key') }}",
+                            publishable_key: "{{ config('services.roboflow.public_key') }}",
                         })
                         .load({
                             model: 'oxford-pets', //'dog-and-cat-face-detection:1',
@@ -297,9 +297,11 @@
                     let img = document.getElementById('petPreview');
                     model.detect(img).then(function(predictions) {
                         console.log("Predictions: ", predictions);
-                        // if there ir more than one pet in the photo we need to iterate perdictions
+                        let prediction = predictions[0];
+                        console.log(prediction);
+
                         let speciesInput = document.getElementById('species');
-                        speciesInput.value = "cat";
+                        speciesInput.value = prediction.class;
                     });
                 });
             }
